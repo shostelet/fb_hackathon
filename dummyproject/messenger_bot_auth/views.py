@@ -48,10 +48,10 @@ def webhook(request):
                 profile_id=profile.id
             )
 
+            send_ack_to_user(fb_user_id)
+
     if mode == 'subscribe' and verify_token != settings.MESSENGER_BOT_VERIFY_TOKEN:
         raise HttpResponseForbidden('wrong verify token')
-
-    send_ack_to_user(fb_user_id)
 
     return HttpResponse()
 
