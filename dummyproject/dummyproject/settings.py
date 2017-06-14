@@ -95,24 +95,36 @@ WSGI_APPLICATION = 'dummyproject.wsgi.application'
 # }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ad_d76cf47570377e6',
-        'USER': 'b7129888cc98c0',
-        'PASSWORD': '5bc13b5e',
-        'HOST': 'us-cdbr-iron-east-03.cleardb.net',
-        'PORT': '3306',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ad_d76cf47570377e6',
+#         'USER': 'b7129888cc98c0',
+#         'PASSWORD': '5bc13b5e',
+#         'HOST': 'us-cdbr-iron-east-03.cleardb.net',
+#         'PORT': '3306',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ad_d76cf47570377e6',
+#         'USER': 'root',
+#         'PASSWORD': 'toor',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ad_d76cf47570377e6',
-        'USER': 'root',
-        'PASSWORD': 'toor',
-        'HOST': 'localhost',
+        'NAME': 'ad_8ae7d4234c686b0',
+        'USER': 'b83224ca73da0a',
+        'PASSWORD': '1573ccb4',
+        'HOST': 'us-cdbr-iron-east-03.cleardb.net',
         'PORT': '3306',
     }
 }
