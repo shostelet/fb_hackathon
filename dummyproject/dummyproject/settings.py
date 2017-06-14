@@ -34,12 +34,12 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'messenger_bot_auth.apps.MessengerBotAuthConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
+    # 'django.contrib.admin',
+    # 'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.sessions',
+    # 'django.contrib.messages',
+    # 'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
