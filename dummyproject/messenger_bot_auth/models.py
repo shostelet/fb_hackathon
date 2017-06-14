@@ -4,11 +4,17 @@ from django.db import models
 
 
 class Profile(models.Model):
+    class Meta:
+        db_table = 'profile'
 
-    messenger_app_user_id = models.IntegerField()
+    messenger_app_user_id = models.CharField(null=False, unique=True, max_length=255)
 
 
-class Topic(models.Model):
+class CrowdtanglePreference(models.Model):
 
-    name = models.CharField(max_length=255)
-    profile = models.ForeignKey(Profile, related_name="topics")
+    class Meta:
+        db_table = 'crowdtangle_preferences'
+
+    # user_pref_id = models.AutoField(primary_key=True)
+    search_preference = models.CharField(max_length=255)
+    profile = models.ForeignKey(Profile, related_name="preferences")

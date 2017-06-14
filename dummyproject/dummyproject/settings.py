@@ -83,14 +83,37 @@ WSGI_APPLICATION = 'dummyproject.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dummy_db',
+#         'USER': 'dummy_user',
+#         'PASSWORD': 'dummy_password',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dummy_db',
-        'USER': 'dummy_user',
-        'PASSWORD': 'dummy_password',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ad_d76cf47570377e6',
+        'USER': 'b7129888cc98c0',
+        'PASSWORD': '5bc13b5e',
+        'HOST': 'us-cdbr-iron-east-03.cleardb.net',
+        'PORT': '3306',
+    }
+}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ad_d76cf47570377e6',
+        'USER': 'root',
+        'PASSWORD': 'toor',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '3306',
     }
 }
 
@@ -136,22 +159,22 @@ STATIC_URL = '/static/'
 
 MESSENGER_BOT_VERIFY_TOKEN = 'HFbnljeio56mJHnf003'
 
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
+#
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': 'debug.log',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['file'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#     },
+# }
