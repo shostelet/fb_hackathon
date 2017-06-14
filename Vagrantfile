@@ -12,6 +12,8 @@ Vagrant.configure("2") do |django_config|
     p.customize ["modifyvm", :id, "--cpuexecutioncap", 50]
   end
 
+  django_config.ssh.password = "true"
+
   # Configure a synced folder between HOST and GUEST
   django_config.vm.synced_folder ".", "/vagrant", :nfs => true, :mount_options => ["actimeo=1"]
 

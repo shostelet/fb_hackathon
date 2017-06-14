@@ -25,12 +25,15 @@ SECRET_KEY = '%fwqspe#1j8^868kf3&rn3ut$ppw8*i)+nsxhvioz&y1mgguoh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '9bd94b57.ngrok.io'
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'messenger_bot_auth.apps.MessengerBotAuthConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,3 +132,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+MESSENGER_BOT_VERIFY_TOKEN = 'HFbnljeio56mJHnf003'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
