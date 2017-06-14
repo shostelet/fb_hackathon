@@ -6,6 +6,7 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 
 from messenger_bot_auth.models import Profile, CrowdtanglePreference
+from requests import Request, Session
 
 logger = logging.getLogger('messenger_auth_bot')
 
@@ -50,6 +51,8 @@ def webhook(request):
     if mode == 'subscribe' and verify_token != settings.MESSENGER_BOT_VERIFY_TOKEN:
         raise HttpResponseForbidden('wrong verify token')
 
+    send_ack_to_user(fb_user_id)
+
     return HttpResponse()
 
 
@@ -65,3 +68,19 @@ def extract_text(body):
         return body['entry'][0]['messaging'][0]['message']['text']
     except KeyError:
         return None
+
+
+def send_ack_to_user(user_id):
+    payload = {
+        "recipient": {"id": user_id},
+        "message": {
+            "text": "Got it!"
+        }
+    }
+    payload = json.dumps(payload)
+    headers = {'Content-type': 'application/json'}
+    request = Request('POST', settings.FACEBOOK_MESSENGER_API_URL, data=payload, headers=headers)
+    prepped_request = request.prepare()
+
+    s = Session()
+    s.send(prepped_request)

@@ -178,3 +178,9 @@ MESSENGER_BOT_VERIFY_TOKEN = 'HFbnljeio56mJHnf003'
 #         },
 #     },
 # }
+
+#
+# Facebook app. We should not store all that on Git :)
+#
+FB_ACCESS_TOKEN = 'EAALPbu3hDt8BAOIy02fZAinLldklKeoUep3AL8BL5KdMYWJpusgO4j3NRxajHtu8ZAvfQcp33gmg96x0KfnjhGxlWkieDrgB6ZBRDZBkCSzZBAQcRkBRcDY9i5m79HIvDQJ1pcs0XqeuF7sCFjvW4MQKKbwstYMYfXriYDZC1vNwZDZD'
+FACEBOOK_MESSENGER_API_URL = 'https://graph.facebook.com/v2.9/me/messages?access_token={}'.format(FB_ACCESS_TOKEN)
