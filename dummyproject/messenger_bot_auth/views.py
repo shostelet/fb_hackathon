@@ -24,6 +24,9 @@ def webhook(request):
     challenge = request.GET.get('hub.challenge')
     verify_token = request.GET.get('hub.verify_token')
 
+    if challenge and mode == 'subscribe' and verify_token == settings.MESSENGER_BOT_VERIFY_TOKEN:
+        return HttpResponse(challenge)
+
     body_unicode = request.body.decode('utf-8')
     body = json.loads(body_unicode)
 
@@ -89,9 +92,6 @@ def webhook(request):
                 )
 
                 send_message_to_user(fb_user_id, 'Keyword added!')
-
-    if mode == 'subscribe' and verify_token != settings.MESSENGER_BOT_VERIFY_TOKEN:
-        raise HttpResponseForbidden('wrong verify token')
 
     return HttpResponse()
 
