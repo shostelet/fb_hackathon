@@ -1,7 +1,8 @@
 import logging
 import json
 
-from django.http import JsonResponse, HttpResponse, HttpResponseForbidden
+from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseForbidden
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 
@@ -14,7 +15,8 @@ logger = logging.getLogger('messenger_auth_bot')
 
 
 def index(request):
-    return JsonResponse({'success': True})
+    context = {}
+    return render(request, 'homepage/index.html', context)
 
 
 @csrf_exempt
@@ -30,15 +32,15 @@ def webhook(request):
     body_unicode = request.body.decode('utf-8')
     body = json.loads(body_unicode)
 
-    print("MODE: ")
-    print(mode)
+    # print("MODE: ")
+    # print(mode)
 
-    logger.debug(body_unicode)
-    print(body_unicode)
+    # logger.debug(body_unicode)
+    # print(body_unicode)
 
     fb_user_id = extract_user_id(body)
-    logger.debug(fb_user_id)
-    print(fb_user_id)
+    # logger.debug(fb_user_id)
+    # print(fb_user_id)
 
     if fb_user_id:
         # profile, is_created = Profile.objects.get_or_create(
@@ -54,9 +56,7 @@ def webhook(request):
                 message = "Commands available: " \
                           "\nhelp" \
                           "\nlist" \
-                          "\ndelete <keyword>" \
-                          "\n\nDeveloper commands:" \
-                          "\nget user_id"
+                          "\ndelete <keyword>"
                 send_message_to_user(fb_user_id, message)
             elif text == 'list':
                 prefs = CrowdtanglePreference.objects.filter(
