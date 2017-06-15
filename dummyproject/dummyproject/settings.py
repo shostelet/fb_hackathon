@@ -26,7 +26,8 @@ SECRET_KEY = '%fwqspe#1j8^868kf3&rn3ut$ppw8*i)+nsxhvioz&y1mgguoh'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '9bd94b57.ngrok.io'
+    '9bd94b57.ngrok.io',
+    'django-fb-hackathon.cfapps.io'
 ]
 
 
